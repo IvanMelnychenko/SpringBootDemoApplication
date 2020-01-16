@@ -7,12 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-
 
   private final UserServiceImpl userService;
 
@@ -28,8 +26,7 @@ public class UserController {
   }
 
   @PostMapping("/user-create")
-  public void createUserForm(@RequestParam String firstName, @RequestParam String lastName ) {
-    User user = new User(firstName,lastName);
+  public void createUserForm(User user) {
     userService.saveUser(user);
   }
 
